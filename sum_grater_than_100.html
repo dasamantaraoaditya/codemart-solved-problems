@@ -1,0 +1,62 @@
+<html>
+<body>
+<script>
+    var form1data=new Array(),form2data=new Array();
+    function getForm1Data() {
+    var num=parseInt(document.getElementById("form1").value);
+    if(!isNaN(num))
+    {
+        form1data.push(num);
+        var prev=document.getElementById("fresult").innerHTML;
+        prev+=num+"<br>";
+        document.getElementById("fresult").innerHTML=prev;
+    }
+}
+    function getForm2Data() {
+    var num=parseInt(document.getElementById("form2").value);
+    if(!isNaN(num)) {
+        form2data.push(num);
+        var prev = document.getElementById("sresult").innerHTML;
+        prev += num + "<br>";
+        document.getElementById("sresult").innerHTML=prev;
+
+        var prev = document.getElementById("rresult").innerHTML;
+        for(i=0;i<form1data.length;i++)
+        if(num+form1data[i]>=100)
+                prev+=num+"+"+form1data[i]+"="+(num+form1data[i])+"<br>";
+
+        document.getElementById("rresult").innerHTML=prev;
+    }
+
+}
+
+</script>
+<table width="100%">
+<tr>
+ <td><span id="fform">First Form:<br>
+     <input type="text" value="" id="form1" >
+     <input type="button" value="submit" id="btn1" onclick="getForm1Data()"/>
+ </span></td>
+
+<td><span id="sform">Second Form:<br>
+    <input type="text" value="" id="form2">
+    <input type="button" value="submit" id="btn2" onclick="getForm2Data()"/>
+</span></td>
+
+<td><span id="result">
+</span></td>
+</tr>
+
+<tr>
+ <td><span id="fresult">
+ </span></td>
+
+<td><span id="sresult">
+    </span></td>
+
+<td><span id="rresult">
+</span></td>
+</tr>
+</table>
+</body>
+</html>
