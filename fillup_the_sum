@@ -1,0 +1,47 @@
+<html>
+<body>
+<script>
+var element=null;
+function fillUpSum()
+{
+var count=0,fill=0;
+var val1=parseInt(document.getElementById('txt1').value);
+//document.getElementById('stxt1').innerHTML=val1;
+if(!isNaN(val1)&&document.getElementById('txt1')!=element){count++;fill-=val1;}
+var val2=parseInt(document.getElementById('txt2').value);
+//document.getElementById('stxt2').innerHTML=val2;
+if(!isNaN(val2)&&document.getElementById('txt2')!=element){count++;fill-=val2;}
+var val3=parseInt(document.getElementById('txt3').value);
+//document.getElementById('stxt3').innerHTML=val3;
+if(!isNaN(val3)&&document.getElementById('txt3')!=element){count++;fill-=val3;}
+var val4=parseInt(document.getElementById('txt4').value);
+//document.getElementById('stxt4').innerHTML=val4;
+if(!isNaN(val4)&&document.getElementById('txt4')!=element){count++;fill-=val4;}
+var total=parseInt(document.getElementById('total').value);
+//document.getElementById('stotal').innerHTML=total;
+if(!isNaN(total)&&document.getElementById('total')!=element){count++;fill+=total;}
+//window.alert(count);
+if(count==4)
+{
+if(isNaN(val1))
+element=document.getElementById('txt1');
+if(isNaN(val2))
+element=document.getElementById('txt2');
+if(isNaN(val3))
+element=document.getElementById('txt3');
+if(isNaN(val4))
+element=document.getElementById('txt4');
+if(isNaN(total))
+element=document.getElementById('total');
+}
+if(element!=null)
+element.value=fill;
+}
+</script>
+<b>sum1</b><input type=text id="txt1" value="" onkeyup="fillUpSum()"><span id="stxt1"></span><br>
+<b>sum2</b><input type=text id="txt2" value="" onkeyup="fillUpSum()"><span id="stxt2"></span><br>
+<b>sum3</b><input type=text id="txt3" value="" onkeyup="fillUpSum()"><span id="stxt3"></span><br>
+<b>sum4</b><input type=text id="txt4" value="" onkeyup="fillUpSum()"><span id="stxt4"></span><br>
+<b>Total</b><input type=text id="total" value="" onkeyup="fillUpSum()"><span id="stotal"></span><br>
+</body>
+</html>
