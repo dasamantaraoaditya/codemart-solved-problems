@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>empty the tank</title>
+    <style>
+        #outercontainer{
+            background-color: #ec971f;
+                width: 500px;
+            height: 500px;
+            position:absolute;
+        }
+        #innercontainer{
+            background-color: #2b542c;
+            width:50px;
+            height: 50px;
+            position: relative;
+        }
+        #press{
+            background-color: yellowgreen;
+            width: 50px;
+            height: 20px;
+            top:550px;
+            left:250px;
+            position:absolute;
+        }
+
+    </style>
+</head>
+<body>
+
+<script>
+    var pos = 0, open = false,id;
+    function onBoxOperation() {
+        var element = document.getElementById("innercontainer");
+        id = setInterval(moving, 10);
+
+        function moving() {
+            var element = document.getElementById("innercontainer");
+            if (open)
+                if (pos == 450)
+                    clearInterval(id);
+                else {
+                    pos++;
+                    element.style.top = pos + "px";
+                    element.style.left = pos + "px";
+                }
+        }
+    }
+       function moveBox() {
+            if (open == false) {
+                open = true;
+                onBoxOperation()
+            }
+            else
+            {
+                open = false;
+                clearInterval(id);
+            }
+        }
+</script>
+<div id="outercontainer">
+<div id="innercontainer"></div></div>
+<div id="press" onclick="moveBox();">click</div>
+</body>
+</html>
