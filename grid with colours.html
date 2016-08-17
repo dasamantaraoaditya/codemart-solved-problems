@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid with Colors</title>
+    <style>
+        td{
+            width:100px;
+            height:100px;
+            text-align:center;
+
+        }
+    </style>
+</head>
+<body>
+<script>
+    var gridsid=new Array(),gridscolor=new Array();
+function changecolor(element)
+{
+    if(gridsid.indexOf(element.id)==-1) {
+        gridsid.push(element.id);
+        gridscolor.push(element.style.backgroundColor);
+        element.style.backgroundColor = 'whitesmoke';
+
+        if (gridsid.length > 3) {
+            document.getElementById(gridsid.shift()).style.backgroundColor = gridscolor.shift();
+        }
+    }
+}
+</script>
+<table>
+    <tr><td id="11" style="background-color: yellow" onclick="changecolor(this)">87</td><td id="12" style="background-color: greenyellow" onclick="changecolor(this)">24</td><td id="13" style="background-color: red" onclick="changecolor(this)">59</td><td id="14" style="background-color: yellow" onclick="changecolor(this)">21</td></tr>
+    <tr><td id="21" style="background-color: skyblue" onclick="changecolor(this)">89</td><td id="22" style="background-color: pink" onclick="changecolor(this)">27</td><td id="23" style="background-color: pink" onclick="changecolor(this)">63</td><td id="24" style="background-color: skyblue" onclick="changecolor(this)">37</td></tr>
+    <tr><td id="31" style="background-color: greenyellow" onclick="changecolor(this)">48</td><td id="32" style="background-color: yellow" onclick="changecolor(this)">4</td><td id="33" style="background-color: red" onclick="changecolor(this)">54</td><td id="34" style="background-color: skyblue" onclick="changecolor(this)">8</td></tr>
+    <tr><td id="41" style="background-color: pink"  onclick="changecolor(this)">88</td><td id="42" style="background-color: yellow"  onclick="changecolor(this)">74</td><td id="43" style="background-color: pink"  onclick="changecolor(this)">63</td><td id="44" style="background-color: red"  onclick="changecolor(this)">78</td></tr>
+</table>
+</body>
+</html>
