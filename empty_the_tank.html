@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>empty the tank</title>
+    <style>
+        #tank{
+            border-style:solid;
+            width:300px;
+            height:400px;
+            border-top-left-radius: 20px;
+            border-top-right-radius:20px;
+            position: relative;
+        }
+        #water{
+            background-color: skyblue;
+            width:300px;
+            height:400px;
+            border-top-left-radius: 20px;
+            border-top-right-radius:20px;
+            position: relative;
+        }
+        #pip{
+            background-color: brown;
+            width:150px;
+            height:10px;
+            position: absolute;
+            top:405px;
+            left:313px;
+        }
+        #tap{
+            background-color: red;
+            width:30px;
+            height:10px;
+            top:390px;
+            left:450px;
+            position: absolute;
+        }
+        #mouth{
+            background-color: brown;
+            width:10px;
+            height:20px;
+            top:400px;
+            left:460px;
+            position:absolute;
+        }
+        #flow{
+            width:8px;
+            height:500px;
+            top:420px;
+            left:461px;
+            position:absolute;
+        }
+
+    </style>
+</head>
+<body>
+
+<script>
+    var id,pos=400,open=false;
+
+    function emptyTank()
+    {
+        var element=document.getElementById('water');
+        if(pos==0) {
+            clearInterval(id);
+            document.getElementById('flow').style.backgroundColor = "white";
+        }
+        else {
+            pos--;
+            element.style.height= pos+'px';
+            element.style.top= 400-pos+'px';
+            if(pos>390)
+            element.style.borderTopLeftRadius = pos-390+"px";
+            element.style.borderTopRightRadius = pos-390+"px";
+        }
+    }
+
+    function openTap()
+    {
+        if(open)
+        {
+            open=false;
+            clearInterval(id);
+            document.getElementById('tap').style.backgroundColor="red";
+            document.getElementById('flow').style.backgroundColor="white";
+        }
+        else
+        {
+            open=true;
+            document.getElementById('tap').style.backgroundColor="green";
+            document.getElementById('flow').style.backgroundColor="skyblue";
+            id=setInterval(emptyTank,100);
+        }
+    }
+
+</script>
+<div id="tank"><div id="water"></div></div>
+<div id="pip"></div>
+<div id="tap" onclick="openTap()"></div>
+<div id="mouth"></div>
+<div id="flow"></div>
+</body>
+</html>
