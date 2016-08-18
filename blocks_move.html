@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<style>
+			button{
+				width:50px;
+				height:50px;
+				background-color:gray;
+			}
+			div{
+				border:solid 2px;
+				width:500px;
+				height:500px;
+			}
+			
+		</style>
+	</head>
+	<script>
+		function move(element,e)
+		{
+			key=e.keyCode;
+			var top=(element.style.top).split("p");
+				top=parseInt(top[0]);
+			var left=(element.style.left).split("p");	
+				left=parseInt(left[0]);
+				if(top>=495)
+					top=490;
+				if(left>=495)
+					left=490;
+				if(top<=0)
+					top=1;
+				if(left<=0)
+					left=1;
+					
+				if(top>0&&top<500&&left<500&&left>0)
+			{
+				if(key==37)
+				element.style.left=left-5+"px";
+				if(key==38)
+				element.style.top=top-5+"px";
+				if(key==39)
+				element.style.left=left+5+"px";
+				if(key==40)
+				element.style.top=top+5+"px";
+			}
+		}
+	</script>
+	<body>
+		<div id="container">
+		<button style="position: absolute;top: 20px;left: 20px;" id="block1" onkeydown="move(this,event)">1</button>
+		<button style="position: absolute;top: 90px;left: 20px;" id="block2" onkeydown="move(this,event)">2</button>
+		<button style="position: absolute;top: 160px;left: 20px;" id="block3" onkeydown="move(this,event)">3</button>
+		<button style="position: absolute;top: 230px;left: 20px;" id="block4" onkeydown="move(this,event)">4</button>
+		</div>
+	</body>
+</html>

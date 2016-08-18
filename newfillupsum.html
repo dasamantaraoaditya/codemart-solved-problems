@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<style>
+			input{
+				width:200px;
+				align:center;
+			}
+			div{
+    position: relative;
+    left: 500px;
+    top: 100px;
+    background-color: #f5f5f5;
+    width:200px;
+}
+}
+		</style>
+	</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script>
+	var element=null;
+function fillUpSum(){
+	var count=0,fill=0;
+	    var val1=parseInt($("#txt1").val());
+        if(!isNaN(val1)&&document.getElementById('txt1')!=element){count++;fill-=val1;}
+        var val2=parseInt($("#txt2").val());
+        if(!isNaN(val2)&&document.getElementById('txt2')!=element){count++;fill-=val2;}
+        var val3=parseInt($("#txt3").val());
+        if(!isNaN(val3)&&document.getElementById('txt3')!=element){count++;fill-=val3;}
+        var val4=parseInt($("#txt4").val());
+        if(!isNaN(val4)&&document.getElementById('txt4')!=element){count++;fill-=val4;}
+        var total=parseInt($("#total").val());
+        if(!isNaN(total)&&document.getElementById('total')!=element){count++;fill+=total;}
+        //alert(fill);
+    
+if(count==4)
+{if(isNaN(val1))
+element=document.getElementById('txt1');
+if(isNaN(val2))
+element=document.getElementById('txt2');
+if(isNaN(val3))
+element=document.getElementById('txt3');
+if(isNaN(val4))
+element=document.getElementById('txt4');
+if(isNaN(total))
+element=document.getElementById('total');
+}
+if(element!=null)
+element.value=fill;
+}
+
+</script>
+<div id="divs">
+<b>A:<br></b><input type=text id="txt1" value="" onkeyup="fillUpSum()"><br>
+<b>B:<br></b><input type=text id="txt2" value="" onkeyup="fillUpSum()"><br>
+<b>C:<br></b><input type=text id="txt3" value="" onkeyup="fillUpSum()"><br>
+<b>D:<br></b><input type=text id="txt4" value="" onkeyup="fillUpSum()"><br>
+<b>-------------------<br>TOTAL:<br></b><input type=text id="total" value="" onkeyup="fillUpSum()"><br>
+</div>
+</body>
+</html>
